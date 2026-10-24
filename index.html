@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Editor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Image Editor</h1>
+  <div class="actions">
+    <button id="upload" class="btn primary">Upload photo</button>
+    <input type="file" id="file" accept="image/*" hidden>
+    <button id="undo" class="btn" disabled>Undo</button>
+    <button id="reset" class="btn" disabled>Reset</button>
+    <button id="compare" class="btn" disabled>Hold to compare</button>
+    <select id="fmt" aria-label="Download format">
+      <option value="image/png">PNG</option>
+      <option value="image/jpeg">JPEG</option>
+      <option value="image/webp">WEBP</option>
+    </select>
+    <button id="download" class="btn primary" disabled>Download</button>
+  </div>
+</header>
+<main>
+  <section id="stage" class="stage">
+    <div id="drop" class="drop">Drop a photo here, paste it with Ctrl+V, or choose Upload photo.</div>
+    <canvas id="canvas" hidden></canvas>
+  </section>
+  <aside class="panel">
+    <h2>Presets</h2>
+    <div id="presets" class="chips"></div>
+    <h2>Adjust</h2>
+    <div id="sliders"></div>
+    <h2>Rotate and flip</h2>
+    <div class="row">
+      <button class="btn" data-act="rotL">Rotate left</button>
+      <button class="btn" data-act="rotR">Rotate right</button>
+      <button class="btn" data-act="flipH">Flip horizontal</button>
+      <button class="btn" data-act="flipV">Flip vertical</button>
+    </div>
+    <h2>Crop</h2>
+    <div id="ratios" class="chips"></div>
+    <h2>JPEG and WEBP quality</h2>
+    <div><input type="range" id="q" min="10" max="100" value="92" aria-label="Export quality"></div>
+  </aside>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
